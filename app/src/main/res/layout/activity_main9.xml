@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEBCD"
+    tools:context=".MainActivity9">
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generate_report"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <LinearLayout
+        android:layout_width="382dp"
+        android:layout_height="358dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497">
+
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/heading2"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:text="@string/display_expense_report" />
+
+        <Spinner
+            android:id="@+id/spinner7"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:contentDescription="@string/display_expense_report"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textView19"
+            style="@style/heading2"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="@string/display_profit_loss_report" />
+
+        <Spinner
+            android:id="@+id/spinner8"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:contentDescription="@string/display_profit_loss_report"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

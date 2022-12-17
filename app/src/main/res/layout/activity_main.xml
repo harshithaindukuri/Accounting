@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEBCD"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="@string/main_heading"
+        android:textColor="#055008"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="252dp"
+        android:layout_height="62dp"
+        android:text="@string/import_and_export"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.308" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="252dp"
+        android:layout_height="62dp"
+        android:text="@string/open_new_account_book"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/heading2"
+        android:layout_width="316dp"
+        android:layout_height="60dp"
+        android:text="@string/your_account_books"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <ScrollView
+        style="@style/fields"
+        android:layout_width="360dp"
+        android:layout_height="261dp"
+        android:contentDescription="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.883">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEBCD"
+    tools:context=".MainActivity6">
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_expense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_account_book"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857" />
+
+    <TableLayout
+        android:layout_width="298dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView17"
+                style="@style/fields"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <Spinner
+                android:id="@+id/spinner6"
+                style="@style/fields"
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/add_item"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quantity" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName11"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/enter_quantity"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:textColorHint="#757575"
+                tools:ignore="TouchTargetSizeCheck" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView15"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unit" />
+
+            <Spinner
+                android:id="@+id/spinner5"
+                style="@style/fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/add_unit"
+                tools:ignore="TouchTargetSizeCheck" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView18"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount" />
+
+            <EditText
+                android:id="@+id/editTextNumberDecimal2"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/enter_price"
+                android:inputType="numberDecimal"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAutofill="no" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/fields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/income_expense" />
+
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="142dp"
+                android:layout_height="38dp" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
