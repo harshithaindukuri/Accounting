@@ -25,4 +25,17 @@
     <string name="display_profit_loss_report">DISPLAY PROFIT/LOSS REPORT</string>
     <string name="pdf_view">PDF VIEW</string>
     <string name="income_expense">INCOME/EXPENSE</string>
+    <string name="expense">EXPENSE</string>
+    <string name="income">INCOME</string>
+    <string name="unit_of_measure">UNIT OF MEASURE:</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="enter">enter</string>
+    <string name="account_name">Account name</string>
+    <string name="create">CREATE</string>
+    <string-array name="units">
+        <item>KGS</item>
+        <item>LTRS</item>
+        <item>NUMBER</item>
+        <item>NONE</item>
+    </string-array>
 </resources>

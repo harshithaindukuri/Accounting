@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Accounting</string>
     <string name="main_heading">ACCOUNTING AND ANALYSIS</string>
@@ -9,8 +8,7 @@
     <string name="enter_new_account_name">Enter new account name</string>
     <string name="import_text">IMPORT</string>
     <string name="export_text">EXPORT</string>
-    <string name="enter_expense">ENTER EXPENSE</string>
-    <string name="enter_income">ENTER INCOME</string>
+    <string name="enter_expense">ENTER INCOME/EXPENSE</string>
     <string name="view_reports">VIEW REPORTS</string>
     <string name="add_item">ADD ITEM</string>
     <string name="add_unit">ADD UNIT</string>
@@ -26,4 +24,17 @@
     <string name="display_expense_report">DISPLAY EXPENSE REPORT</string>
     <string name="display_profit_loss_report">DISPLAY PROFIT/LOSS REPORT</string>
     <string name="pdf_view">PDF VIEW</string>
+    <string name="income_expense">INCOME/EXPENSE</string>
+    <string name="expense">EXPENSE</string>
+    <string name="income">INCOME</string>
+    <string name="unit_of_measure">UNIT OF MEASURE:</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="enter">enter</string>
+    <string name="account_name">Account name</string>
+    <string-array name="units">
+        <item>KGS</item>
+        <item>LTRS</item>
+        <item>NUMBER</item>
+        <item>NONE</item>
+    </string-array>
 </resources>

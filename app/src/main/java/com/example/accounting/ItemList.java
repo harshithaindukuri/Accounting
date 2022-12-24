@@ -18,7 +18,7 @@ public class ItemList {
         try{
             FileWriter writer = new FileWriter(filename,true);
             writer.append(itemName);
-            writer.append('-');
+            writer.append(',');
             writer.flush();
             writer.close();
         }catch(IOException e){
@@ -35,7 +35,7 @@ public class ItemList {
             StringBuilder accum = new StringBuilder();
             while (fileReader.ready()) {
                 char c = (char)fileReader.read();
-                if(c != '-')
+                if(c != ',')
                 accum.append(c);
                 else {
                         array_items.add(accum.toString());
@@ -56,6 +56,7 @@ public class ItemList {
              ) {
             if(itemName.equals(item_single)){
                item_found = true;
+               break;
             }
         }
         return item_found;

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/fields"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEBCD"
     tools:context=".MainActivity7">
 
     <TextView
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/textView8"
-        style="@style/fields"
+        style="@style/heading2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -42,6 +42,7 @@
         android:hint="@string/enter_item"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:maxLines="1"
         android:minHeight="48dp"
         android:textColorHint="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,21 +59,50 @@
         android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch1"
-        style="@style/fields"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:text="@string/income_expense"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintVertical_bias="0.592" />
+
+    <TextView
+        android:id="@+id/textView10"
+        style="@style/heading2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/unit_of_measure"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="96dp"
+        android:layout_height="54dp"
+        android:contentDescription="@string/add_unit"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/units"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:text="@string/togglebutton"
+        android:textOff="@string/income"
+        android:textOn="@string/expense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

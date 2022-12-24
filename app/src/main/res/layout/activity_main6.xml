@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEBCD"
     tools:context=".MainActivity6">
 
     <TextView
@@ -15,10 +14,9 @@
         android:text="@string/enter_expense"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -27,10 +25,10 @@
         android:contentDescription="@string/add_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236"
+        app:layout_constraintVertical_bias="0.19"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
@@ -46,120 +44,112 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.857" />
 
-    <TableLayout
-        android:layout_width="298dp"
-        android:layout_height="164dp"
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        style="@style/heading2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity"
+        style="@style/heading2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58">
+        app:layout_constraintVertical_bias="0.578" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amount"
+        style="@style/heading2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
 
-            <TextView
-                android:id="@+id/textView17"
-                style="@style/fields"
-                android:layout_width="99dp"
-                android:layout_height="wrap_content"
-                android:text="@string/name" />
+    <Spinner
+        android:id="@+id/spinner3"
+        style="@style/fields"
 
-            <Spinner
-                android:id="@+id/spinner6"
-                style="@style/fields"
-                android:layout_width="192dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/add_item"
-                tools:ignore="TouchTargetSizeCheck" />
+        android:layout_width="208dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/name"
 
-        </TableRow>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        style="@style/fields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_quantity"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:numeric="integer|decimal"
+        android:textColorHint="#795548"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596" />
 
-            <TextView
-                android:id="@+id/textView14"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quantity" />
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        style="@style/fields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_price"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:numeric="signed|integer|decimal"
+        android:textColorHint="#795548"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.679" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName11"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/enter_quantity"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textColorHint="#757575"
-                tools:ignore="TouchTargetSizeCheck" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView15"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/unit" />
-
-            <Spinner
-                android:id="@+id/spinner5"
-                style="@style/fields"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/add_unit"
-                tools:ignore="TouchTargetSizeCheck" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView18"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/amount" />
-
-            <EditText
-                android:id="@+id/editTextNumberDecimal2"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/enter_price"
-                android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck"
-                android:importantForAutofill="no" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView9"
-                style="@style/fields"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/income_expense" />
-
-            <Switch
-                android:id="@+id/switch3"
-                android:layout_width="142dp"
-                android:layout_height="38dp" />
-        </TableRow>
-    </TableLayout>
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:text="@string/togglebutton"
+        android:textOff="@string/income"
+        android:textOn="@string/expense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.372" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
