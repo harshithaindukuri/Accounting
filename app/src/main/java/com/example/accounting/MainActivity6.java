@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class MainActivity6 extends AppCompatActivity {
-    public  String name_selected , type_selected;
+    public  String name_selected ;
     Spinner spinner;
     ToggleButton type_tran;
     ImageButton add_item_button;
@@ -48,8 +48,6 @@ public class MainActivity6 extends AppCompatActivity {
         expense_list = ItemList.fetch_array(FileInit.expense_file);
         type_tran = findViewById(R.id.toggleButton2);
         spinner = findViewById(R.id.spinner3);
-        type_selected = type_tran.getTextOff().toString();
-        activate_name_spinner(income_list);
     }
 
     @Override
@@ -69,13 +67,12 @@ public class MainActivity6 extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    type_selected = type_tran.getTextOn().toString();
+
                     multiplier = -1;
                     activate_name_spinner(expense_list);
                 }
                 else
                 {
-                    type_selected = type_tran.getTextOff().toString();
                     multiplier = 1;
                     activate_name_spinner(income_list);
                 }
@@ -140,13 +137,11 @@ public class MainActivity6 extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    type_selected = type_tran.getTextOn().toString();
                     multiplier = -1;
                     activate_name_spinner(expense_list);
                 }
                 else
                 {
-                    type_selected = type_tran.getTextOff().toString();
                     multiplier = +1;
                     activate_name_spinner(income_list);
                 }

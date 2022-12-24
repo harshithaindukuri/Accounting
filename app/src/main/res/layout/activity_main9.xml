@@ -40,6 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:contentDescription="@string/display_expense_report"
+            android:entries="@array/view_report_options"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -54,7 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:contentDescription="@string/display_profit_loss_report"
+            android:entries="@array/view_report_options"
             tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/submit" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

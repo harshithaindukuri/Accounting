@@ -31,10 +31,22 @@
     <string name="togglebutton">ToggleButton</string>
     <string name="enter">enter</string>
     <string name="account_name">Account name</string>
+    <string name="submit">SUBMIT</string>
     <string-array name="units">
         <item>KGS</item>
         <item>LTRS</item>
         <item>NUMBER</item>
         <item>NONE</item>
+    </string-array>
+    <string-array name="view_report_options">
+        <item>DISPLAY TODAY</item>
+        <item>DISPLAY THIS WEEK</item>
+        <item>DISPLAY LAST WEEK</item>
+        <item>DISPLAY THIS MONTH</item>
+        <item>DISPLAY LAST MONTH</item>
+        <item>LAST 3 MONTHS</item>
+        <item>LAST 6 MONTHS</item>
+        <item>DISPLAY 1 YEAR</item>
+        <item>DISPLAY ALL DATA</item>
     </string-array>
 </resources>
