@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
-
-
 import java.time.LocalDate;
 
 import java.time.YearMonth;
@@ -18,23 +16,21 @@ public class MainActivity10 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main10);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onStart() {
         super.onStart();
-        if(StaticData.category.equals("EX")){
-            generate_expense_report();
-        }
-        else{
-            generate_pl_report();
-        }
-        generate_criteria(StaticData.type_view,StaticData.category);
+        TimeSpan ts1 = generate_criteria(StaticData.type_view);
+        TranList.fetch_records_byRange(StaticData.account_name,ts1.getStartDate(),ts1.getEndDate());
+        TranList.accumulate(StaticData.fetched_list);
+        generate_report(StaticData.category);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void generate_criteria(String type, String category){
+    public TimeSpan generate_criteria(String type){
         long sub = 0;
         LocalDate firstOfMonth,lastOfMonth;
         YearMonth yearMonth = YearMonth.of( LocalDate.now().getYear(),LocalDate.now().getMonth());
@@ -93,13 +89,17 @@ public class MainActivity10 extends AppCompatActivity {
                 tp = new TimeSpan(yearMonth4.atDay(1),LocalDate.now());
                 break;
         }
+        return tp;
     }
 
-    public void generate_expense_report(){
+    public void generate_report(String category){
 
+        if(category.equals("EX")){
+//PDF write
+        }
+        else{
+//PDF write
+        }
     }
 
-    public void generate_pl_report(){
-
-    }
 }

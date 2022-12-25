@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -13,10 +14,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TranList {
-
-    public static Transaction accum_rec;
-    public static ArrayList<Transaction> fetched_records;
-    public static ArrayList<Transaction> accumulated_records = new ArrayList<Transaction>();
 
     public static boolean add_to_tranFile(File filename, Transaction tranName) {
         try {
@@ -34,39 +31,68 @@ public class TranList {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<Transaction> accumulate(File filename, String accountName, LocalDate startDate,LocalDate endDate) {
+    public static void accumulate(ArrayList<Transaction> fetched_list) {
 
-                fetched_records = fetch_records_byRange(filename, accountName,startDate,endDate);
-                if (fetched_records == null) {
-                    return null;
-                } else {
-                    for (Transaction fetch_each : fetched_records
-                    ) {
-                        accum_rec = getRecord(accumulated_records, fetch_each.accountName);
-                        if (accum_rec == null) {
-                            accumulated_records.add(fetch_each);
-                        } else {
-                            accum_rec.quantity = accum_rec.quantity + fetch_each.quantity;
-                            accum_rec.amount = accum_rec.amount + fetch_each.amount;
-                        }
-                    }
-                }
-        return accumulated_records;
-    }
+        for(int i =0;i<StaticData.incomeQty.length;i++){
+            StaticData.incomeQty[i] = 0;
+            StaticData.incomeAmt[i] = 0;
+        }
 
-    public static ArrayList<Transaction> fetch_records_byRange(File filename, String accountName, LocalDate start_date,LocalDate end_date) {
-        return null;
-    }
-
-    public static Transaction getRecord(ArrayList<Transaction> accum_records, String accountName) {
-
-        for (Transaction accum_each : accum_records
-        ) {
-            if (accum_each.accountName.equals(accountName)) {
-                return accum_each;
+        for(int i =0;i<StaticData.expenseQty.length;i++){
+            StaticData.expenseQty[i] = 0;
+            StaticData.expenseAmt[i] = 0;
+        }
+        int i = 0;
+        for (Transaction t:StaticData.fetched_list
+             ) {
+            if(t.amount >= 0){
+                StaticData.incomeQty[i]  =  StaticData.incomeQty[i] + t.quantity;
+                StaticData.incomeAmt[i]  =  StaticData.incomeAmt[i] + t.amount;
+                i+=1;
+            }
+            else{
+                StaticData.expenseQty[i]  =  StaticData.expenseQty[i] - t.quantity;
+                StaticData.expenseAmt[i]  =  StaticData.expenseAmt[i] - t.amount;
+                i+=1;
             }
         }
-        return null;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void fetch_records_byRange(String accountName, LocalDate start_date, LocalDate end_date) {
+        for (Transaction tr:StaticData.main_list_read
+             ) {
+            if(tr.accountName.equals(accountName) && tr.date_entered.isAfter(start_date)
+            && tr.date_entered.isBefore(end_date)){
+                StaticData.fetched_list.add(tr);
+            }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void read_file(File filename){
+         //read record by record
+        // convert to transaction
+        //append to arraylist
+        Transaction tr;
+        try {
+            FileReader fileReader = new FileReader(filename);
+            StringBuilder accum = new StringBuilder();
+            while (fileReader.ready()) {
+                char c = (char)fileReader.read();
+                if(c != '\n')
+                    accum.append(c);
+                else {
+                    tr = Transaction.create_transaction(accum.toString());
+                    StaticData.main_list_read.add(tr);
+                    accum = new StringBuilder();
+                }
+            }
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }
 

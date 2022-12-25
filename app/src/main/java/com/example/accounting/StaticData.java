@@ -1,5 +1,6 @@
 package com.example.accounting;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StaticData {
@@ -9,4 +10,13 @@ public class StaticData {
     public static int [] values = {0,1,2,3,4,5,6};
     public static String [] days =
             {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+    public static ArrayList<Transaction> main_list_read;
+    public static ArrayList<Transaction> fetched_list;
+    public static String [] incomeItems;
+    public static String [] expenseItems;
+    public static double [] incomeQty;
+    public static double [] incomeAmt;
+    public static double [] expenseQty;
+    public static double [] expenseAmt;
+
 }
