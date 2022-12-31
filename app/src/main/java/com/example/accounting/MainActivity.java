@@ -1,8 +1,12 @@
 package com.example.accounting;
 
+import static com.example.accounting.StaticData.main_list_read;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +18,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //show account books present and allows to create new account and do import and export from
     // external files
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FileInit.file_Initializer(getApplicationContext());
+        // create main list from daily file
+        main_list_read = new ArrayList<Transaction>();
+        TranList.read_file(FileInit.daily_file);
     }
 
     @Override

@@ -69,7 +69,7 @@ public class MainActivity7 extends AppCompatActivity {
                     Toast.makeText(MainActivity7.this, "PLEASE ENTER ITEM" + name, Toast.LENGTH_LONG).show();
                 }
                 else {
-                    add_name = name + '-' + unit_selected;
+                    add_name = name.toUpperCase() + '-' + unit_selected;
                     int response = ItemList.add_to_file(goToFile, add_name);
                     switch (response) {
                         case 0:

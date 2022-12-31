@@ -54,15 +54,9 @@ public class MainActivity6 extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(type_tran.isChecked()){
-            multiplier = -1;
-            activate_name_spinner(expense_list);
-        }
-        else
-        {
-            multiplier = +1;
-            activate_name_spinner(income_list);
-        }
+        multiplier = +1;
+        activate_name_spinner(income_list);
+
         type_tran.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -94,11 +88,11 @@ public class MainActivity6 extends AppCompatActivity {
                 double quantity,amount;
                 String temp = quantity_et.getText().toString();
                 if(temp.isEmpty()){
-                    quantity = 0.0;
+                    quantity = 0.0 * multiplier;
                 }
                 else
                 {
-                    quantity = Double.parseDouble(temp);
+                    quantity = Double.parseDouble(temp) * multiplier;
                 }
 
                 temp = amount_et.getText().toString();
@@ -167,7 +161,7 @@ public class MainActivity6 extends AppCompatActivity {
                 }
                 else
                 {
-                    quantity = Double.parseDouble(temp);
+                    quantity = Double.parseDouble(temp) * multiplier;
                 }
 
                 temp = amount_et.getText().toString();
@@ -190,6 +184,9 @@ public class MainActivity6 extends AppCompatActivity {
 
     public void activate_name_spinner(ArrayList<String> list){
         if(list.isEmpty()){
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
             Toast.makeText(MainActivity6.this, "CLICK on + ICON ABOVE TO ADD ITEM", Toast.LENGTH_LONG).show();
         }
         else {

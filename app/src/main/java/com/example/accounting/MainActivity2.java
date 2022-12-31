@@ -28,6 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
                             case 0: Toast.makeText(MainActivity2.this, "ACCOUNT CREATED", Toast.LENGTH_LONG).show();break;
                             case 1: Toast.makeText(MainActivity2.this, "ENTERED NAME IS EMPTY", Toast.LENGTH_LONG).show();break;
                             case 2: Toast.makeText(MainActivity2.this, "ACCOUNT ALREADY EXIST", Toast.LENGTH_LONG).show();break;
+                            case 3: Toast.makeText(MainActivity2.this, "SHOULD NOT CONTAIN COMMA", Toast.LENGTH_LONG).show();break;
                         }
             }
         });

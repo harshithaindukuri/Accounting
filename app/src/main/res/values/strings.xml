@@ -33,11 +33,15 @@
     <string name="account_name">Account name</string>
     <string name="create">CREATE</string>
     <string name="submit">SUBMIT</string>
+    <string name="item_name">ITEM NAME</string>
+    <string name="quantity_1">QUANTITY</string>
+    <string name="amount_1">AMOUNT</string>
+    <string name="info_imp_exp">Click on Import to restore data. Click on Export to backup data. Export should be done before Import</string>
     <string-array name="units">
-        <item>KGS</item>
-        <item>LTRS</item>
-        <item>NUMBER</item>
-        <item>NONE</item>
+        <item>kg</item>
+        <item>lt</item>
+        <item>number</item>
+        <item>none</item>
     </string-array>
 
     <string-array name="view_report_options">

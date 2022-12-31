@@ -5,7 +5,8 @@
     style="@style/fields"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity7">
+    tools:context=".MainActivity7"
+    android:background="@color/navajowhite">
 
     <TextView
         android:id="@+id/textView7"
@@ -38,11 +39,11 @@
         style="@style/fields"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:capitalize="characters"
         android:ems="10"
         android:hint="@string/enter_item"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:maxLength="15"
         android:maxLines="1"
         android:minHeight="48dp"
         android:textColorHint="#616161"

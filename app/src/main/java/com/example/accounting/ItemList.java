@@ -1,6 +1,7 @@
 package com.example.accounting;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,6 +15,9 @@ public class ItemList {
         boolean itemFound = check_item(filename,itemName);
         if(itemFound){
             return 2;
+        }
+        else if(itemName.contains(",")){
+            return 3;
         }
         try{
             FileWriter writer = new FileWriter(filename,true);
@@ -42,13 +46,30 @@ public class ItemList {
                         accum = new StringBuilder();
                     }
                 }
+            fileReader.close();
             } catch(IOException e){
             e.printStackTrace();
         }
         return array_items;
     }
 
-    public static boolean check_item(File filename , String itemName){
+    public static void copy_file(File filesrc, File filedes){
+        FileReader fileReader ;
+        FileWriter fileWriter ;
+        try {
+             fileReader = new FileReader(filesrc);
+             fileWriter = new FileWriter(filedes);
+            while (fileReader.ready()) {
+                fileWriter.append((char)fileReader.read());
+            }
+
+            fileReader.close();
+            fileWriter.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+        public static boolean check_item(File filename , String itemName){
         ArrayList<String> item_array;
         boolean item_found = false;
         item_array = fetch_array(filename);

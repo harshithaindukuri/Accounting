@@ -29,7 +29,20 @@ public class Transaction {
         this.amount = amount;
         this.date_entered = date_entered;
     }
+    public String displayable_string(){
 
+        StringBuilder item = new StringBuilder(this.itemName);
+        while(item.length() <= 20){
+            item.append(" ");
+        }
+
+        StringBuilder qty = new StringBuilder(String.valueOf(this.quantity));
+        while(qty.length() <= 8){
+            qty.append(" ");
+        }
+
+        return "  " + item + qty + this.amount;
+                  }
 
     public String get_TranString(){
 
@@ -45,7 +58,7 @@ public class Transaction {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Transaction create_transaction(String tran){
-       String [] tokens = tran.split(",",5);
+       String [] tokens = tran.split(",");
          String accountName = tokens[0];
          String itemName = tokens[1];
          double quantity = Double.parseDouble(tokens[2]);
