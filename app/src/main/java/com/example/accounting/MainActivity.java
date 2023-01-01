@@ -5,6 +5,9 @@ import static com.example.accounting.StaticData.main_list_read;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -116,4 +119,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i = new Intent(MainActivity.this,MainActivity5.class);
         startActivity(i);
     }
+
 }

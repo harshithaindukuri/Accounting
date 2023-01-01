@@ -3,6 +3,7 @@ package com.example.accounting;
 import static com.example.accounting.StaticData.main_list_read;
 
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -52,16 +53,15 @@ public class TranList {
         int i ;
         for (Transaction t:StaticData.fetched_list
              ) {
-            if(t.amount >= 0){
+            if(t.amount > 0){
                 i = getIndex(t.itemName,'i');
                 StaticData.incomeQty[i]  =  StaticData.incomeQty[i] + t.quantity;
                 StaticData.incomeAmt[i]  =  StaticData.incomeAmt[i] + t.amount;
-
             }
             else{
                 i = getIndex(t.itemName,'e');
-                StaticData.expenseQty[i]  =  StaticData.expenseQty[i] - t.quantity;
-                StaticData.expenseAmt[i]  =  StaticData.expenseAmt[i] - t.amount;
+                StaticData.expenseQty[i]  =  StaticData.expenseQty[i] + t.quantity;
+                StaticData.expenseAmt[i]  =  StaticData.expenseAmt[i] + t.amount;
             }
         }
     }

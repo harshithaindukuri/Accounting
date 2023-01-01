@@ -125,6 +125,7 @@ public class MainActivity9 extends AppCompatActivity {
                 fetched_list = new ArrayList<Transaction>();
                 TranList.fetch_records_byRange(StaticData.account_name,ts1.getStartDate(),ts1.getEndDate());
                 TranList.accumulate();
+
                 // generate_report(StaticData.category);
                 Intent i = new Intent(MainActivity9.this,MainActivity8.class);
                 startActivity(i);

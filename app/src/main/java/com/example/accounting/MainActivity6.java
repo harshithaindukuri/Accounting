@@ -165,7 +165,7 @@ public class MainActivity6 extends AppCompatActivity {
                 }
 
                 temp = amount_et.getText().toString();
-                if(temp.isEmpty()){
+                if(temp.isEmpty() || Double.parseDouble(amount_et.getText().toString()) == 0){
                     Toast.makeText(MainActivity6.this,"AMOUNT MUST BE ENTERED", Toast.LENGTH_SHORT).show();
                 }
                 else {
