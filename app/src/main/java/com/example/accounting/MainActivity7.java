@@ -34,6 +34,11 @@ public class MainActivity7 extends AppCompatActivity {
         super.onStart();
         item_name = findViewById(R.id.editTextTextPersonName2);
         type_tran = findViewById(R.id.toggleButton);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         type_tran.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -56,7 +61,7 @@ public class MainActivity7 extends AppCompatActivity {
 
             public void onNothingSelected(AdapterView<?> arg0)
             {
-                //Toast.makeText(arg0.getContext(), "Select unit",Toast.LENGTH_LONG).show();
+                unit_selected = arg0.getItemAtPosition(3).toString();
             }
         });
 

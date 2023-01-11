@@ -40,7 +40,7 @@
     <string-array name="units">
         <item>kg</item>
         <item>lt</item>
-        <item>number</item>
+        <item>nbr</item>
         <item>none</item>
     </string-array>
 

@@ -22,6 +22,7 @@ import android.graphics.pdf.PdfDocument;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -48,97 +49,22 @@ public class MainActivity9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main9);
-
-        //create incomeItems array
-        ArrayList<String> fetchArray =  ItemList.fetch_array(FileInit.income_file);
-        int i = 0;
-        StaticData.incomeItems = new String[fetchArray.size()];
-        for (String s:fetchArray
-        ) {
-            StaticData.incomeItems[i++] = s;
-        }
-        //create expenseItems array
-        fetchArray =  ItemList.fetch_array(FileInit.expense_file);
-        i = 0;
-        StaticData.expenseItems = new String[fetchArray.size()];
-        for (String s:fetchArray
-        ) {
-            StaticData.expenseItems[i++] = s;
-        }
-
+        FileInit.file_data_holder();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         spinner_expense = findViewById(R.id.spinner7);
-        spinner_expense.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                expense_selected = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                expense_selected = parent.getItemAtPosition(0).toString();
-            }
-        });
         spinner_pl = findViewById(R.id.spinner8);
-        spinner_pl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pl_selected = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                pl_selected = parent.getItemAtPosition(0).toString();
-            }
-        });
         exp_b = findViewById(R.id.button11);
         pl_b = findViewById(R.id.button12);
-
-        exp_b.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-                StaticData.type_view = expense_selected;
-                StaticData.category = "EX";
-                TimeSpan ts1 = generate_criteria(StaticData.type_view);
-                fetched_list = new ArrayList<Transaction>();
-                TranList.fetch_records_byRange(StaticData.account_name,ts1.getStartDate(),ts1.getEndDate());
-                TranList.accumulate();
-                // generate_report(StaticData.category);
-                Intent i = new Intent(MainActivity9.this,MainActivity8.class);
-                startActivity(i);
-            }
-        });
-
-        pl_b.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-                StaticData.type_view = pl_selected;
-                StaticData.category = "PL";
-
-                TimeSpan ts1 = generate_criteria(StaticData.type_view);
-                fetched_list = new ArrayList<Transaction>();
-                TranList.fetch_records_byRange(StaticData.account_name,ts1.getStartDate(),ts1.getEndDate());
-                TranList.accumulate();
-
-                // generate_report(StaticData.category);
-                Intent i = new Intent(MainActivity9.this,MainActivity8.class);
-                startActivity(i);
-            }
-        });
-
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        spinner_expense = findViewById(R.id.spinner7);
         spinner_expense.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -150,7 +76,6 @@ public class MainActivity9 extends AppCompatActivity {
                 expense_selected = parent.getItemAtPosition(0).toString();
             }
         });
-        spinner_pl = findViewById(R.id.spinner8);
         spinner_pl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -162,8 +87,7 @@ public class MainActivity9 extends AppCompatActivity {
                 pl_selected = parent.getItemAtPosition(0).toString();
             }
         });
-        exp_b = findViewById(R.id.button11);
-        pl_b = findViewById(R.id.button12);
+
 
         exp_b.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

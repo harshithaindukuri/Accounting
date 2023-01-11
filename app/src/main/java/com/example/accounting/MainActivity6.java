@@ -39,7 +39,11 @@ public class MainActivity6 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         add_item_button = findViewById(R.id.imageButton2);
         add_to_account_bk = findViewById(R.id.button9);
         quantity_et = findViewById(R.id.editTextNumberDecimal);
@@ -48,96 +52,33 @@ public class MainActivity6 extends AppCompatActivity {
         expense_list = ItemList.fetch_array(FileInit.expense_file);
         type_tran = findViewById(R.id.toggleButton2);
         spinner = findViewById(R.id.spinner3);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        multiplier = +1;
-        activate_name_spinner(income_list);
-
-        type_tran.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-
-                    multiplier = -1;
-                    activate_name_spinner(expense_list);
-                }
-                else
-                {
-                    multiplier = 1;
-                    activate_name_spinner(income_list);
-                }
-            }
-        });
-
-        add_item_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity6.this,MainActivity7.class);
-                startActivity(i);
-            }
-        });
-
-        add_to_account_bk.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-                double quantity,amount;
-                String temp = quantity_et.getText().toString();
-                if(temp.isEmpty()){
-                    quantity = 0.0 * multiplier;
-                }
-                else
-                {
-                    quantity = Double.parseDouble(temp) * multiplier;
-                }
-
-                temp = amount_et.getText().toString();
-                if(temp.isEmpty()){
-                    Toast.makeText(MainActivity6.this,"AMOUNT MUST BE ENTERED", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    amount = Double.parseDouble(amount_et.getText().toString()) * multiplier;
-                    Transaction new_tran = new Transaction(StaticData.account_name, name_selected, quantity, amount);
-                    boolean added = TranList.add_to_tranFile(FileInit.daily_file, new_tran);
-                    if (added) {
-                        Toast.makeText(MainActivity6.this, "Added", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity6.this, "Failed to Add", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+        FileInit.file_data_holder();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        income_list = ItemList.fetch_array(FileInit.income_file);
-        expense_list = ItemList.fetch_array(FileInit.expense_file);
+
         if(type_tran.isChecked()){
             multiplier = -1;
-            activate_name_spinner(expense_list);
+            activate_name_spinner(StaticData.expenseItems);
         }
         else
         {
             multiplier = +1;
-            activate_name_spinner(income_list);
+            activate_name_spinner(StaticData.incomeItems);
         }
         type_tran.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     multiplier = -1;
-                    activate_name_spinner(expense_list);
+                    activate_name_spinner(StaticData.expenseItems);
                 }
                 else
                 {
                     multiplier = +1;
-                    activate_name_spinner(income_list);
+                    activate_name_spinner(StaticData.incomeItems);
                 }
             }
         });
@@ -182,8 +123,8 @@ public class MainActivity6 extends AppCompatActivity {
         });
     }
 
-    public void activate_name_spinner(ArrayList<String> list){
-        if(list.isEmpty()){
+    public void activate_name_spinner(String [] list){
+        if(list.length == 0){
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(adapter);

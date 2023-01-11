@@ -4,8 +4,8 @@ import java.sql.Time;
 import java.time.LocalDate;
 
 public class TimeSpan {
- private LocalDate startDate;
- private LocalDate endDate;
+  LocalDate startDate;
+  LocalDate endDate;
 
     public TimeSpan(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
@@ -16,15 +16,9 @@ public class TimeSpan {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
+
 }

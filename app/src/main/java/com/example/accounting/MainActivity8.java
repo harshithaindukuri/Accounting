@@ -18,13 +18,21 @@ public class MainActivity8 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TableRow tableRow;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
         TableLayout tableLayout = findViewById(R.id.tableLayout1);
         TextView textView ;
+
         if(StaticData.category.equals("EX")) {
+            double  amt, total_amt = 0;
+
             for(int i = 0;i<StaticData.expenseItems.length;i++) {
-                TableRow tableRow = new TableRow(this);
+
+                if(StaticData.expenseAmt[i] == 0){
+                    continue;
+                }
+                tableRow = new TableRow(this);
                 tableRow.setId(i);
                 textView = new TextView(this);
                 textView.setTextAppearance(this,R.style.fields1);
@@ -38,10 +46,32 @@ public class MainActivity8 extends AppCompatActivity {
 
                 textView = new TextView(this);
                 textView.setTextAppearance(this,R.style.fields1);
-                textView.setText(String.valueOf(StaticData.expenseAmt[i]));
+                amt = StaticData.expenseAmt[i];
+                textView.setText(String.valueOf(amt));
+                total_amt = total_amt + amt;
                 tableRow.addView(textView);
                 tableLayout.addView(tableRow);
             }
+            String s = " ";
+            textView= new TextView(this);
+            textView.setText(s);
+            tableRow = new TableRow(this);
+            tableRow.addView(textView);
+            tableLayout.addView(tableRow);
+
+            s = "TOTAL";
+            textView= new TextView(this);
+            textView.setTextAppearance(this,R.style.fields1);
+            textView.setText(s);
+            tableRow = new TableRow(this);
+            tableRow.addView(textView);
+
+            textView= new TextView(this);
+            textView.setTextAppearance(this,R.style.fields1);
+            textView.setText(String.valueOf(total_amt));
+            tableRow.addView(textView);
+
+            tableLayout.addView(tableRow);
         }
         else {
 
@@ -49,8 +79,12 @@ public class MainActivity8 extends AppCompatActivity {
             ArrayList<String> matched_list = new ArrayList<>();
 
             for (int i = 0; i < StaticData.incomeItems.length; i++) {
+
                 qty = StaticData.incomeQty[i];
                 amt = StaticData.incomeAmt[i];
+                if(amt == 0){
+                    continue;
+                }
                 for(int j = 0;j<StaticData.expenseItems.length;j++){
                     if(StaticData.incomeItems[i].equals(StaticData.expenseItems[j])){
                         qty = StaticData.incomeQty[i] + StaticData.expenseQty[j];
@@ -59,7 +93,7 @@ public class MainActivity8 extends AppCompatActivity {
                         break;
                     }
                 }
-                TableRow tableRow = new TableRow(this);
+                tableRow = new TableRow(this);
                 tableRow.setId(i);
                 textView = new TextView(this);
                 textView.setTextAppearance(this, R.style.fields1);
@@ -81,8 +115,11 @@ public class MainActivity8 extends AppCompatActivity {
             for (int i = 0; i < StaticData.expenseItems.length; i++) {
                 qty = StaticData.expenseQty[i];
                 amt = StaticData.expenseAmt[i];
+                if(amt == 0){
+                    continue;
+                }
                 if(!matched_list.contains(StaticData.expenseItems[i])) {
-                    TableRow tableRow = new TableRow(this);
+                    tableRow = new TableRow(this);
                     tableRow.setId(i);
                     textView = new TextView(this);
                     textView.setTextAppearance(this, R.style.fields1);
@@ -103,7 +140,7 @@ public class MainActivity8 extends AppCompatActivity {
                 }
             }
 
-            TableRow tableRow = new TableRow(this);
+            tableRow = new TableRow(this);
             textView = new TextView(this);
             textView.setTextAppearance(this, R.style.fields1);
             textView.setText("  ");

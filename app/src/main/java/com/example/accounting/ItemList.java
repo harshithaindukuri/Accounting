@@ -53,22 +53,6 @@ public class ItemList {
         return array_items;
     }
 
-    public static void copy_file(File filesrc, File filedes){
-        FileReader fileReader ;
-        FileWriter fileWriter ;
-        try {
-             fileReader = new FileReader(filesrc);
-             fileWriter = new FileWriter(filedes);
-            while (fileReader.ready()) {
-                fileWriter.append((char)fileReader.read());
-            }
-
-            fileReader.close();
-            fileWriter.close();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
         public static boolean check_item(File filename , String itemName){
         ArrayList<String> item_array;
         boolean item_found = false;

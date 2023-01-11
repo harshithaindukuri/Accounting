@@ -81,11 +81,12 @@ public class TranList {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void read_file(File filename){
+    public static int read_file(File filename){
          //read record by record
         // convert to transaction
         //append to arraylist
         Transaction tr;
+        int lines = 0;
         try {
             FileReader fileReader = new FileReader(filename);
             StringBuilder accum = new StringBuilder();
@@ -97,13 +98,14 @@ public class TranList {
                     tr = Transaction.create_transaction(accum.toString());
                     main_list_read.add(tr);
                     accum = new StringBuilder();
+                    lines++;
                 }
             }
             fileReader.close();
         } catch(IOException e){
             e.printStackTrace();
         }
-
+        return lines;
     }
 public static int getIndex(String itemName, char listType){
 

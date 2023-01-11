@@ -16,12 +16,11 @@ public class MainActivity3 extends AppCompatActivity {
 //does provide import and export options
 File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "accounting");
     File daily_file = new File(file.getAbsolutePath(),"daily_file_ext.txt");
-    File weekly_file = new File(file.getAbsolutePath(),"weekly_file_ext.txt");
-    File monthly_file = new File(file.getAbsolutePath(),"monthly_file_ext.txt");
-    File yearly_file = new File(file.getAbsolutePath(),"yearly_file_ext.txt");
+    File history_file = new File(file.getAbsolutePath(),"history_file_ext.txt");
     File income_file = new File(file.getAbsolutePath(),"income_file_ext.txt");
     File expense_file = new File(file.getAbsolutePath(),"expense_file_ext.txt");
     File account_file = new File(file.getAbsolutePath(),"account_file_ext.txt");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +40,16 @@ File file = new File(Environment.getExternalStoragePublicDirectory(Environment.D
                         !expense_file.exists() &&
                         !account_file.exists() &&
                         !daily_file.exists() &&
-                        !monthly_file.exists() &&
-                        !yearly_file.exists())
+                        !history_file.exists())
                 {
                     Toast.makeText(MainActivity3.this, "DATA NOT FOUND", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    ItemList.copy_file(income_file,FileInit.income_file);
-                    ItemList.copy_file(expense_file,FileInit.expense_file);
-                    ItemList.copy_file(account_file,FileInit.account_file);
-                    ItemList.copy_file(daily_file,FileInit.daily_file);
-                    ItemList.copy_file(weekly_file,FileInit.weekly_file);
-                    ItemList.copy_file(monthly_file,FileInit.monthly_file);
-                    ItemList.copy_file(yearly_file,FileInit.yearly_file);
+                    FileInit.copy_file(income_file,FileInit.income_file);
+                    FileInit.copy_file(expense_file,FileInit.expense_file);
+                    FileInit.copy_file(account_file,FileInit.account_file);
+                    FileInit.copy_file(daily_file,FileInit.daily_file);
+                    FileInit.copy_file(history_file,FileInit.history_file);
                     Toast.makeText(MainActivity3.this, "DATA IMPORTED SUCCESSFUL", Toast.LENGTH_LONG).show();
                 }
             }
@@ -71,23 +67,19 @@ File file = new File(Environment.getExternalStoragePublicDirectory(Environment.D
                     expense_file.createNewFile();
                     account_file.createNewFile();
                     daily_file.createNewFile();
-                    weekly_file.createNewFile();
-                    monthly_file.createNewFile();
-                    yearly_file.createNewFile();
+                    history_file.createNewFile();
 
-                    ItemList.copy_file(FileInit.income_file,income_file);
-                    ItemList.copy_file(FileInit.expense_file,expense_file);
-                    ItemList.copy_file(FileInit.account_file,account_file);
-                    ItemList.copy_file(FileInit.daily_file,daily_file);
-                    ItemList.copy_file(FileInit.weekly_file,weekly_file);
-                    ItemList.copy_file(FileInit.monthly_file,monthly_file);
-                    ItemList.copy_file(FileInit.yearly_file,yearly_file);
+
+                    FileInit.copy_file(FileInit.income_file,income_file);
+                    FileInit.copy_file(FileInit.expense_file,expense_file);
+                    FileInit.copy_file(FileInit.account_file,account_file);
+                    FileInit.copy_file(FileInit.daily_file,daily_file);
+                    FileInit.copy_file(FileInit.history_file,history_file);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 Toast.makeText(MainActivity3.this, "DATA EXPORTED SUCCESSFUL", Toast.LENGTH_LONG).show();
-
             }
         });
     }

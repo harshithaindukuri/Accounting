@@ -2,6 +2,7 @@ package com.example.accounting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -25,7 +26,12 @@ public class MainActivity2 extends AppCompatActivity {
                 String account_book_name = open_account_name.getText().toString();
                         int response = ItemList.add_to_file(FileInit.account_file,account_book_name);
                         switch (response) {
-                            case 0: Toast.makeText(MainActivity2.this, "ACCOUNT CREATED", Toast.LENGTH_LONG).show();break;
+                            case 0: Toast.makeText(MainActivity2.this, "ACCOUNT CREATED", Toast.LENGTH_LONG).show();
+                                StaticData.account_name = account_book_name;
+                                Intent i = new Intent(MainActivity2.this,MainActivity5.class);
+                                startActivity(i);
+                                finish();
+                            break;
                             case 1: Toast.makeText(MainActivity2.this, "ENTERED NAME IS EMPTY", Toast.LENGTH_LONG).show();break;
                             case 2: Toast.makeText(MainActivity2.this, "ACCOUNT ALREADY EXIST", Toast.LENGTH_LONG).show();break;
                             case 3: Toast.makeText(MainActivity2.this, "SHOULD NOT CONTAIN COMMA", Toast.LENGTH_LONG).show();break;
