@@ -59,10 +59,11 @@ public class MainActivity7 extends AppCompatActivity {
                 unit_selected = parent.getItemAtPosition(position).toString();
             }
 
-            public void onNothingSelected(AdapterView<?> arg0)
-            {
-                unit_selected = arg0.getItemAtPosition(3).toString();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                unit_selected = parent.getItemAtPosition(0).toString();
             }
+
         });
 
         add_name_button = findViewById(R.id.button10);

@@ -31,7 +31,6 @@ public class MainActivity6 extends AppCompatActivity {
     ImageButton add_item_button;
     Button add_to_account_bk;
     EditText quantity_et,amount_et;
-    ArrayList<String> income_list,expense_list;
     double  multiplier;
 
 //this page is for entering income/expense items and add to the files
@@ -48,8 +47,6 @@ public class MainActivity6 extends AppCompatActivity {
         add_to_account_bk = findViewById(R.id.button9);
         quantity_et = findViewById(R.id.editTextNumberDecimal);
         amount_et = findViewById(R.id.editTextNumberDecimal2);
-        income_list = ItemList.fetch_array(FileInit.income_file);
-        expense_list = ItemList.fetch_array(FileInit.expense_file);
         type_tran = findViewById(R.id.toggleButton2);
         spinner = findViewById(R.id.spinner3);
         FileInit.file_data_holder();

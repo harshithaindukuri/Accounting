@@ -23,7 +23,8 @@ public class MainActivity5 extends AppCompatActivity {
     TableLayout tableLayout;
     TextView display_tran;
     TableRow tableRow;
-//this page shows options for entering transactions and view reports
+    TextView account_tv;
+    //this page shows options for entering transactions and view reports
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity5 extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        TextView account_tv = findViewById(R.id.textView9);
+        account_tv = findViewById(R.id.textView9);
         CharSequence account_text = StaticData.account_name;
         account_tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         account_tv.setText(account_text);
@@ -44,14 +45,14 @@ public class MainActivity5 extends AppCompatActivity {
         view_report = findViewById(R.id.button7);
         scrollView = findViewById(R.id.scrollView2);
         tableLayout = new TableLayout(this);
-        scrollView.addView(tableLayout);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume() {
         super.onResume();
-        tableLayout.removeAllViews();
+        scrollView.removeAllViews();
+        scrollView.addView(tableLayout);
         display_tran = new TextView(this);
         String heading = "  " + LocalDate.now().toString() + " --- Today's Transactions";
         display_tran.setText(heading);
@@ -59,7 +60,6 @@ public class MainActivity5 extends AppCompatActivity {
         tableRow = new TableRow(this);
         tableRow.addView(display_tran);
         tableLayout.addView(tableRow);
-
 
         for (Transaction t:StaticData.main_list_read
         ){
@@ -73,11 +73,11 @@ public class MainActivity5 extends AppCompatActivity {
             }
         }
 
+
         new_tran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // this will go to new page to enter tran
-                Toast.makeText(MainActivity5.this, StaticData.account_name, Toast.LENGTH_LONG).show();
                 Intent i = new Intent(MainActivity5.this,MainActivity6.class);
                 startActivity(i);
             }
